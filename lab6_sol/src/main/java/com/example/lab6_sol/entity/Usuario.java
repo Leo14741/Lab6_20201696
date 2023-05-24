@@ -1,6 +1,9 @@
 package com.example.lab6_sol.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "usuario")
@@ -11,15 +14,22 @@ public class Usuario {
     @Column(nullable = false)
     private int id;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Size(min = 3, max = 100)
+    @Column(nullable = false, length=100 )
     private String nombres;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Size(min = 3, max = 100)
+    @Column(nullable = false, length=100 )
     private String apellidos;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Size(min = 8, max = 8)
+    @Column(nullable = false, length = 8)
     private String dni;
 
+    @Positive
     @Column(nullable = false)
     private int edad;
 
